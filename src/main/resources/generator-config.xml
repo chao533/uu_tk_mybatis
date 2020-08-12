@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+	<!-- mybatis-generator:generate maven命令启动 -->
+
+	<!--&lt;!&ndash; 引入外部文件 &ndash;&gt; -->
+	<properties resource="config/cfg.properties" />
+
+	<!--&lt;!&ndash; mysql 驱动 &ndash;&gt; -->
+	<classPathEntry
+		location="E:\repository\mysql\mysql-connector-java\8.0.15\mysql-connector-java-8.0.15.jar" />
+
+	<context id="my" targetRuntime="MyBatis3">
+
+		<!-- TKmybatis配置 -->
+		<property name="javaFileEncoding" value="UTF-8" />
+		<property name="beginningDelimiter" value="`" />
+		<property name="endingDelimiter" value="`" />
+		<plugin type="${mapper.plugin}">
+			<property name="mappers" value="${mapper.Mapper}" />
+		</plugin>
+
+		<commentGenerator>
+			<!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+
+		<jdbcConnection driverClass="${uu.db.driver}"
+			connectionURL="${uu.db.ip}" userId="${uu.db.username}"
+			password="${uu.db.password}" />
+
+
+		<javaModelGenerator targetPackage="com.uu.model"
+			targetProject="src/main/java">
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="src/main/resources">
+		</sqlMapGenerator>
+
+		<javaClientGenerator
+			targetPackage="com.uu.mapper" targetProject="src/main/java"
+			type="XMLMAPPER">
+		</javaClientGenerator>
+
+
+		<table tableName="uu_account_user" domainObjectName="AccountUser"
+			enableCountByExample="false" enableUpdateByExample="false"
+			enableDeleteByExample="false" enableSelectByExample="false"
+			selectByExampleQueryId="false">
+
+			<generatedKey column="user_id" sqlStatement="Mysql" identity="true"/>
+
+		</table>
+
+	</context>
+
+</generatorConfiguration>

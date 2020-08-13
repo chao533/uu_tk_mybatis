@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.uu.mapper.AccountUserMapper" >
+  <resultMap id="BaseResultMap" type="com.uu.model.AccountUser" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <result column="user_id" property="userId" jdbcType="VARCHAR" />
+    <result column="account_balance" property="accountBalance" jdbcType="DECIMAL" />
+    <result column="account_bonus" property="accountBonus" jdbcType="DECIMAL" />
+    <result column="crttime" property="crttime" jdbcType="TIMESTAMP" />
+    <result column="lmdtime" property="lmdtime" jdbcType="TIMESTAMP" />
+  </resultMap>
+</mapper>
